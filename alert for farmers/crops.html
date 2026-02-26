@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crops - AgriAlert</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+
+    <!-- Navbar -->
+    <nav>
+        <button id="navCrops" onclick="goCrops()">Crops</button>
+        <button id="navWeather" onclick="goWeather()">Weather</button>
+        <button id="navAlerts" onclick="goAlerts()">Alerts</button>
+        <button id="navLogout" onclick="logout()">Logout</button>
+    </nav>
+
+    <h2>My Crops</h2>
+    <input type="text" id="cropName" placeholder="Crop Name">
+    <input type="number" id="minRainfall" placeholder="Min Rainfall (mm)">
+    <input type="number" id="maxTemp" placeholder="Max Temp (°C)">
+    <button onclick="addCrop()">Add Crop</button>
+
+    <div id="cropList"></div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/crops.js"></script>
+<script src="js/navigation.js"></script>
+<script>
+    protectPage();          // redirect if not logged in
+    setActiveNav("navCrops"); // highlight current page
+</script>
+</body>
+</html>

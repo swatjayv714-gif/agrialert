@@ -1,0 +1,83 @@
+<!-- Navbar + Navigation for AgriAlert -->
+<nav id="appNavbar">
+    <button id="navCrops">Crops</button>
+    <button id="navWeather">Weather</button>
+    <button id="navAlerts">Alerts</button>
+    <button id="navLogout">Logout</button>
+</nav>
+
+<script>
+// ===== AgriAlert Navigation JS =====
+
+// Wait until DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Get token from localStorage
+    const token = localStorage.getItem("token");
+
+    // Redirect to login if token missing
+    if (!token) {
+        window.location.href = "index.html";
+        return;
+    }
+
+    // Get navbar buttons
+    const navCrops = document.getElementById("navCrops");
+    const navWeather = document.getElementById("navWeather");
+    const navAlerts = document.getElementById("navAlerts");
+    const navLogout = document.getElementById("navLogout");
+
+    // Set click handlers
+    navCrops.addEventListener("click", () => { window.location.href = "crops.html"; });
+    navWeather.addEventListener("click", () => { window.location.href = "weather.html"; });
+    navAlerts.addEventListener("click", () => { window.location.href = "alerts.html"; });
+    navLogout.addEventListener("click", () => {
+        localStorage.removeItem("token");
+        window.location.href = "index.html";
+    });
+
+    // Highlight active page based on current URL
+    const currentPage = window.location.pathname.split("/").pop();
+    switch (currentPage) {
+        case "crops.html":
+            navCrops.classList.add("active");
+            break;
+        case "weather.html":
+            navWeather.classList.add("active");
+            break;
+        case "alerts.html":
+            navAlerts.classList.add("active");
+            break;
+    }
+
+});
+</script>
+
+<style>
+/* ===== Navbar CSS ===== */
+nav {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+nav button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav button.active {
+    background-color: #2e7d32;
+}
+
+nav button:hover {
+    background-color: #45a049;
+}
+</style>

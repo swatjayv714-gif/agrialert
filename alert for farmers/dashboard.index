@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AgriAlert Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>AgriAlert Dashboard</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="alerts.html">Alerts History</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="weather-alert">
+            <h2>Weather Alert</h2>
+            <p id="weather-msg">Loading latest weather alerts...</p>
+        </section>
+
+        <section id="disease-alert">
+            <h2>Disease Alert</h2>
+            <p id="disease-msg">Loading disease alerts...</p>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
